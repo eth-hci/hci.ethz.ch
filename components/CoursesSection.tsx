@@ -8,9 +8,10 @@ type Props = {
     courses: Course[];
     limit?: number;
     showFilters?: boolean;
+    showHeader?: boolean;
 };
 
-export default function CoursesSection({ courses, limit, showFilters = true }: Props) {
+export default function CoursesSection({ courses, limit, showFilters = true, showHeader = true }: Props) {
     const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
 
     // Extract unique filter options
@@ -72,14 +73,16 @@ export default function CoursesSection({ courses, limit, showFilters = true }: P
 
     return (
         <section id="courses" className="section">
-            <header className="section-header">
-                <p className="eyebrow">Teaching</p>
-                <h2>Courses</h2>
-                <p>
-                    From foundational HCI to advanced electives and seminars, 
-                    these courses cover the design, implementation, and evaluation of interactive systems.
-                </p>
-            </header>
+            {showHeader && (
+                <header className="section-header">
+                    <p className="eyebrow">Teaching</p>
+                    <h2>Courses</h2>
+                    <p>
+                        From foundational HCI to advanced electives and seminars, 
+                        these courses cover the design, implementation, and evaluation of interactive systems.
+                    </p>
+                </header>
+            )}
 
             {showFilters && (
                 <div className="course-filters">

@@ -15,6 +15,9 @@ export type Course = {
   url: string;
   courseType: string;
   keywords: string[];
+  day: string;
+  time: string;
+  location: string;
 };
 
 export type Resource = {

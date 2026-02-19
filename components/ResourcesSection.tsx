@@ -14,6 +14,9 @@ export default function ResourcesSection({ resources }: Props) {
           Templates, design systems, and documentation to help you start
           working with the ETH HCI group.
         </p>
+        <p className="placeholder-notice">
+          These are placeholder resources. More content coming soon.
+        </p>
       </header>
       <div className="card-grid">
         {resources.map((resource) => (

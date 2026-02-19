@@ -209,6 +209,13 @@ a:hover {
   color: var(--text-muted);
 }
 
+.placeholder-notice {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.75rem !important;
+  opacity: 0.8;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -886,10 +893,17 @@ a.lab-card:hover {
   gap: 1.5rem;
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
+.header-top {
+  display: contents;
+}
+
+.header-top .theme-toggle {
+  order: 3;
+}
+
+.nav-links {
+  order: 2;
+  margin-left: auto;
 }
 
 .eth-mark {
@@ -1057,14 +1071,323 @@ a.lab-card:hover {
   }
 
   .site-header {
-    padding-inline: 1rem;
+    padding-inline: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .header-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
   }
 
   .page {
-    padding-inline: 1rem;
+    padding-inline: 1.5rem;
+  }
+
+  .section {
+    padding-inline: 0.5rem;
+  }
+
+  .hero {
+    padding-inline: 0.5rem;
   }
 
   .lab-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .site-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-feedback-link {
+    align-self: flex-start;
+  }
+
+  .calendar-grid {
+    grid-template-columns: 40px repeat(5, 1fr);
+    min-width: 320px;
+  }
+
+  .calendar-header-cell {
+    font-size: 1rem;
+    height: 32px;
+  }
+
+  .calendar-time-cell {
+    font-size: 0.8rem;
+  }
+
+  .calendar-event {
+    padding: 0.15rem 0.25rem;
+  }
+
+  .calendar-event-title {
+    -webkit-line-clamp: 3;
+  }
+
+  .calendar-event-time {
+    display: none;
+  }
 }
+
+/* Courses Page Tabs */
+.courses-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tab-button {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--eth-border);
+  background: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease;
+  font-family: inherit;
+}
+
+.tab-button:hover {
+  background: var(--accent-soft);
+}
+
+.tab-button.active {
+  background: #215CAF;
+  color: #fff;
+  border-color: #215CAF;
+}
+
+.semester-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--accent-soft);
+  padding: 0.25rem;
+  border-radius: 6px;
+}
+
+.semester-button {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+  font-family: inherit;
+}
+
+.semester-button:hover {
+  color: var(--text-main);
+}
+
+.semester-button.active {
+  background: var(--bg-main);
+  color: var(--text-main);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Calendar View */
+.calendar-view {
+  overflow-x: auto;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 60px repeat(5, 1fr);
+  gap: 1px;
+  background: var(--eth-border);
+  border: 1px solid var(--eth-border);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 700px;
+}
+
+.calendar-times {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header-cell {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--text-main);
+}
+
+.calendar-time-cell {
+  height: 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.25rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+  background: var(--bg-main);
+}
+
+.calendar-day-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-day-body {
+  position: relative;
+  height: calc(60px * 12); /* 12 hours */
+  background: var(--bg-main);
+}
+
+.calendar-event {
+  position: absolute;
+  background: #0e418890;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-decoration: none;
+  transition: background-color 180ms ease;
+  box-sizing: border-box;
+}
+
+.calendar-event:hover {
+  background: #1a4a8f;
+}
+
+.calendar-event-title {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.calendar-event-time {
+  opacity: 0.85;
+  font-size: 0.65rem;
+}
+
+.calendar-event-location {
+  opacity: 0.75;
+  font-size: 0.6rem;
+}
+
+/* Calendar tooltip */
+.calendar-tooltip {
+  display: flex;
+  position: fixed;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+
+.calendar-tooltip strong {
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+/* Dark mode calendar adjustments */
+[data-theme="dark"] .calendar-event {
+  background: #3a7bd5;
+}
+
+[data-theme="dark"] .calendar-event:hover {
+  background: #4a8be5;
+}
+
+[data-theme="dark"] .semester-button.active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Unscheduled courses section */
+.unscheduled-courses {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--eth-border);
+}
+
+.unscheduled-courses h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-main);
+}
+
+.unscheduled-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.unscheduled-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.unscheduled-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.unscheduled-list a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.unscheduled-list a:hover {
+  color: #215CAF;
+  text-decoration: underline;
+}
+
+.unscheduled-lecturers {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+

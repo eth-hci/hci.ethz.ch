@@ -129,6 +129,9 @@ export async function loadCourses(): Promise<Course[]> {
       .split(";")
       .map((k: string) => k.trim())
       .filter(Boolean),
+    day: row.day ?? "",
+    time: row.time ?? "",
+    location: row.location ?? "",
   }));
 }
 

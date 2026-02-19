@@ -1,6 +1,6 @@
 import SiteHeader from "../../components/SiteHeader";
 import Footer from "../../components/Footer";
-import CoursesSection from "../../components/CoursesSection";
+import CoursesPageClient from "../../components/CoursesPageClient";
 import { loadCourses } from "../../lib/data";
 
 export default async function CoursesPage() {
@@ -10,7 +10,7 @@ export default async function CoursesPage() {
     <>
       <SiteHeader />
       <main className="page">
-        <CoursesSection courses={courses} />
+        <CoursesPageClient courses={courses} />
       </main>
       <Footer />
     </>
