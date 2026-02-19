@@ -1,12 +1,33 @@
 # Data Scripts
 
-Scripts for managing publication data.
+Scripts for managing publication data and course schedules.
 
 ## Prerequisites
 
 These scripts use Python 3.10+ with only standard library modules (no external dependencies needed).
 
 ## Scripts
+
+### fetch_schedules.py
+
+Fetch course schedule information (day, time, location) from ETH VVZ pages.
+
+```bash
+# Update courses.csv with schedule data
+python fetch_schedules.py
+```
+
+The script:
+- Reads course URLs from `courses.csv`
+- Fetches each course's VVZ page
+- Extracts day, time, and room information
+- Handles courses with multiple sessions per week (semicolon-separated)
+- Updates `courses.csv` in place
+
+Schedule fields added:
+- `day` — Day abbreviation (Mon, Tue, Wed, Thu, Fri)
+- `time` — Time range (e.g., "10:15-12:00")
+- `location` — Building and room (e.g., "HG E 3")
 
 ### dblp_pull.py
 

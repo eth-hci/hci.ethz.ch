@@ -28,9 +28,15 @@ This folder contains canonical CSV data used or related to the HCI@ETH site. Cur
 - `courses.csv` (from `_backup/data/teaching.json`)
   - `name` — Course name (used as the homepage course title)
   - `lecturers` — Lecturer(s)
-  - `term` — Term (e.g., "Spring 2024")
+  - `term` — Term (e.g., "Spring", "Autumn", "Non-recurring")
   - `url` — Link to official ETH course information
-  - `level` — Audience/level label (e.g., "Master / Bachelor", "Master project course")
+  - `courseType` — Course type (e.g., "Lecture", "Seminar", "Lab")
+  - `keywords` — Comma-separated keywords for filtering
+  - `day` — Day(s) of the week (e.g., "Mon", "Tue; Thu" for multiple sessions)
+  - `time` — Time slot(s) (e.g., "10:15-12:00", "10:15-12:00; 14:15-16:00")
+  - `location` — Room(s) with building code (e.g., "HG E 3", "HG E 3; CAB G 61")
+
+  **Note:** Use semicolon-separated values for courses with multiple weekly sessions. Schedule data can be updated using `scripts/fetch_schedules.py`.
 
 - `publications.csv` (from `_backup/data/pubs.bib`)
   - `id` — BibTeX key

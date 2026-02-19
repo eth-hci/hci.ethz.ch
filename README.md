@@ -87,15 +87,20 @@ AIT Lab,https://ait.ethz.ch,ait.ethz.ch,Prof. Otmar Hilliges,D-INFK,Computer Vis
 |--------|-------------|
 | `name` | Course title |
 | `lecturers` | Lecturer names (comma-separated for multiple) |
-| `term` | Semester: `Spring`, `Fall`, or `Non-recurring` |
+| `term` | Semester: `Spring`, `Autumn`, or `Non-recurring` |
 | `url` | Link to ETH course page |
 | `courseType` | Type: `Lecture`, `Seminar`, `Lab`, `Project` |
 | `keywords` | Comma-separated keywords for filtering |
+| `day` | Day(s) of the week (e.g., `Mon`, `Tue; Thu` for multiple) |
+| `time` | Time slot(s) (e.g., `10:15-12:00`, `10:15-12:00; 14:15-16:00`) |
+| `location` | Room(s) (e.g., `HG E 3`, `HG E 3; CAB G 61`) |
+
+**Note:** For courses with multiple sessions per week, use semicolon-separated values for `day`, `time`, and `location`.
 
 **Example:**
 ```csv
-name,lecturers,term,url,courseType,keywords
-Human Computer Interaction,"Otmar Hilliges, Christian Holz",Spring,https://ethz.ch/...,Lecture,interaction;design
+name,lecturers,term,url,courseType,keywords,day,time,location
+Human Computer Interaction,"Otmar Hilliges, Christian Holz",Spring,https://ethz.ch/...,Lecture,interaction;design,Thu; Fri,10:15-12:00; 14:15-16:00,HG E 3; CAB G 61
 ```
 
 ### News
@@ -201,6 +206,19 @@ python clean_venues.py
 1. Go to [dblp.org](https://dblp.org)
 2. Search for the author
 3. The PID is in the URL: `https://dblp.org/pid/73/5765` → PID is `73/5765`
+
+## Updating Course Schedules
+
+The `fetch_schedules.py` script pulls schedule data (day, time, location) from ETH VVZ pages.
+
+```bash
+cd data/scripts
+
+# Fetch schedules for all courses with URLs
+python fetch_schedules.py
+```
+
+This updates `courses.csv` with schedule information extracted from each course's ETH VVZ page. Courses with multiple weekly sessions will have semicolon-separated values.
 
 ---
 
