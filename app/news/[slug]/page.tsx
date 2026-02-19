@@ -2,11 +2,18 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteHeader from "../../../components/SiteHeader";
 import Footer from "../../../components/Footer";
-import { loadNewsBySlug, loadNewsArticle } from "../../../lib/data";
+import { loadNews, loadNewsBySlug, loadNewsArticle } from "../../../lib/data";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateStaticParams() {
+  const news = await loadNews();
+  return news
+    .filter((item) => item.slug)
+    .map((item) => ({ slug: item.slug }));
+}
 
 export default async function NewsArticlePage({ params }: Props) {
   const { slug } = await params;
