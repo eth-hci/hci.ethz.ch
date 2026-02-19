@@ -45,7 +45,7 @@ export default function SiteHeader() {
       <header className="site-header">
         <div className="header-top">
           <div className="eth-mark" aria-label="ETH Zurich">
-            <a href="https://ethz.ch/en.html" aria-label="ETH homepage">
+            <a href="https://hci.ethz.ch/" aria-label="ETH HCI homepage">
               <svg
                 viewBox="0 0 120 20"
                 xmlns="http://www.w3.org/2000/svg"
