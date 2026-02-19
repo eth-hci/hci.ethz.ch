@@ -1,7 +1,9 @@
 {
-  "/news/[slug]/page": "app/news/[slug]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/courses/page": "app/courses/page.js",
-  "/publications/page": "app/publications/page.js",
+  "/news/[slug]/page": "app/news/[slug]/page.js",
+  "/news/page": "app/news/page.js",
   "/page": "app/page.js",
-  "/news/page": "app/news/page.js"
+  "/publications/page": "app/publications/page.js",
+  "/resources/page": "app/resources/page.js"
 }

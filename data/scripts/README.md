@@ -54,6 +54,39 @@ The script:
 - Shows which publications will be added vs skipped
 - Sorts merged output by year (newest first)
 
+### deduplicate.py
+
+Remove duplicate publications based on normalized titles.
+
+```bash
+# Remove duplicates from publications.csv
+python deduplicate.py
+```
+
+The script normalizes titles by lowercasing and removing punctuation before comparison.
+
+### clean_authors.py
+
+Clean author names by removing DBLP disambiguation numbers (e.g., "0001", "0002").
+
+```bash
+# Clean author names in publications.csv
+python clean_authors.py
+```
+
+Example: `Christian Holz 0001` → `Christian Holz`
+
+### clean_venues.py
+
+Clean venue names by removing trailing numbers in parentheses (e.g., "(5)", "(2)").
+
+```bash
+# Clean venue names in publications.csv
+python clean_venues.py
+```
+
+Example: `CHI (5)` → `CHI`
+
 ## Typical Workflow
 
 ```bash
@@ -67,6 +100,13 @@ python merge_publications.py --dry-run
 
 # 3. If satisfied, merge
 python merge_publications.py
+
+# 4. Remove duplicates
+python deduplicate.py
+
+# 5. Clean author names and venues
+python clean_authors.py
+python clean_venues.py
 ```
 
 ## CSV Format
